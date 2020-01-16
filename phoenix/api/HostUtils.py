@@ -27,4 +27,4 @@ def getRobotHost(team: int) -> str:
         if isHostAlive(host):
             return host
     
-    return ""
+    return None

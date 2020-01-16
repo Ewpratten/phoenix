@@ -16,3 +16,17 @@ def makeRequest(addr: str, device: str, id: int, action: str) -> dict:
         f"http://{addr}:{PHOENIX_SERVER_PORT}/", params=args).json()
 
     return response
+
+
+def makeRawRequest(addr: str, action: str) -> dict:
+
+    # Construct arguments
+    args: dict = {
+        "action": action,  # Device action
+    }
+
+    # Make API request with constructed args
+    response = requests.get(
+        f"http://{addr}:{PHOENIX_SERVER_PORT}/", params=args).json()
+
+    return response

@@ -1,6 +1,6 @@
 import argparse
 from .api.APIRequest import makeRequest
-from .api.HostUtils import getRobotHost
+import .api.HostUtils
 
 # Handle user args
 parser = argparse.ArgumentParser()
@@ -36,14 +36,17 @@ args = parser.parse_args()
 print(args)
 
 # Determine Robot host IP
-robot_host = getRobotHost(int(args.team))
+robot_host = HostUtils.getRobotHost(int(args.team))
 
-if robot_host != "":
+if robot_host:
     print(f"Found Phoenix server running on {robot_host}")
 else:
     print("Could not find any Phoenix servers")
     exit(1)
 
+# Handle "list all" requests
+if args.action == "listall":
+    all_devices = 
 
 
 # host = ("localhost", 1250)
